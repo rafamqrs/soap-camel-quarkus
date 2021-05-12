@@ -1,11 +1,14 @@
 package com.redhat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
-
+//@XmlRootElement(name = "AddResponse")
+//@XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AddResponse {
-
+	
+	@JacksonXmlProperty(localName="AddResult")
 	protected int addResult;
 
 	/**
