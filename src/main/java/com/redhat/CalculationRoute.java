@@ -1,10 +1,6 @@
 package com.redhat;
 
 
-//camel-k: dependency=mvn:org.apache.camel.quarkus:camel-quarkus-jackson
-//camel-k: dependency=mvn:org.apache.camel.quarkus:camel-quarkus-jacksonxml
-//camel-k: dependency=mvn:org.apache.camel.quarkus:camel-quarkus-qute
-//camel-k: dependency=mvn:org.apache.camel.quarkus:camel-quarkus-openapi-java
 import java.io.StringReader;
 
 import javax.xml.stream.XMLInputFactory;
@@ -30,7 +26,7 @@ public class CalculationRoute extends RouteBuilder {
 				.apiProperty("api.title", "Camel Quarkus SOAP API").apiProperty("api.version", "1.0.0-SNAPSHOT")
 				.apiProperty("cors", "true");
 
-		rest().tag("Camel, Quarkus and SOAP Demonstration").produces("application/json").get("/add")
+		rest().tag("Camel, Quarkus and SOAP Demonstration").produces("application/json").get("/add/{number1}/{number2}")
 				.param().name("number1").type(RestParamType.query).defaultValue("0").description("Number 1").endParam()
 				.param().name("number2").type(RestParamType.query).defaultValue("0").description("Number 2").endParam()
 				.description("ADD Endpoint to sum value1 and value2").route().routeId("restcalculateadd")
@@ -66,30 +62,6 @@ public class CalculationRoute extends RouteBuilder {
 					}
 				});
 	}
-
-//	@JsonIgnoreProperties(ignoreUnknown = true)
-//	public class AddResponse {
-//		
-//		@JacksonXmlProperty(localName="AddResult")
-//		protected int addResult;
-//
-//		/**
-//		 * Gets the value of the addResult property.
-//		 * 
-//		 */
-//		public int getAddResult() {
-//			return addResult;
-//		}
-//
-//		/**
-//		 * Sets the value of the addResult property.
-//		 * 
-//		 */
-//		public void setAddResult(int value) {
-//			this.addResult = value;
-//		}
-//
-//	}
 }
 
 
