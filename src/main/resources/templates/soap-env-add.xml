@@ -2,8 +2,8 @@
    <soap:Header/>
    <soap:Body>
       <tem:Add>
-         <tem:intA>{headers.num1}</tem:intA>
-         <tem:intB>{headers.num2}</tem:intB>
+         <tem:intA>{headers.number1}</tem:intA>
+         <tem:intB>{headers.number2}</tem:intB>
       </tem:Add>
    </soap:Body>
 </soap:Envelope>
